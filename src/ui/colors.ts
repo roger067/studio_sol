@@ -1,0 +1,13 @@
+const COLORS = {
+  GRAY_100: '#EEF1EB',
+  GRAY_200: '#515E63',
+  GRAY_300: '#191A19',
+  GREEN_100: '#C9D8B6',
+  GREEN_200: '#D8E9A8',
+  GREEN_300: '#4E9F3D',
+  GREEN_400: '#1E5128',
+  GREEN_500: '#1B281D',
+  WHITE: '#FFF',
+};
+
+export default COLORS;
