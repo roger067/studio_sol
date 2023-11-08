@@ -14,7 +14,17 @@ interface TypographyPropsExtended
     TypographyProps,
     ColorProps {
   transform?: string;
+  level?: 'default' | 'large';
 }
+
+const textBaseStyle = {
+  default: {
+    weight: '400',
+    size: '0.875rem',
+    lineHeight: '1rem',
+  },
+  large: { weight: '700', size: '1rem', lineHeight: '1.25rem' },
+};
 
 export const BaseTypography = styled.div.withConfig({
   shouldForwardProp: (prop) => !typography?.propNames?.includes(prop),
@@ -26,37 +36,19 @@ export const BaseTypography = styled.div.withConfig({
   ${color}
 `;
 
-export const H1 = styled(BaseTypography).attrs({ as: 'h1' })`
-  font-size: ${({ fontSize }) => (fontSize as string) || '5rem'};
-  font-weight: 900;
-  line-height: ${({ lineHeight }) => (lineHeight as string) || '5.5rem'};
-  color: ${({ color }) => color || COLORS.GRAY_300};
-`;
-
-export const H2 = styled(BaseTypography).attrs({ as: 'h2' })`
-  font-size: ${({ fontSize }) => (fontSize as string) || '3.5rem'};
-  font-weight: 900;
-  line-height: ${({ lineHeight }) => (lineHeight as string) || '3.85rem'};
-  color: ${({ color }) => color || COLORS.GRAY_300};
-`;
-
-export const H3 = styled(BaseTypography).attrs({ as: 'h3' })`
-  font-size: ${({ fontSize }) => (fontSize as string) || '2.5rem'};
-  font-weight: 900;
-  line-height: ${({ lineHeight }) => (lineHeight as string) || '2.75rem'};
-  color: ${({ color }) => color || COLORS.GRAY_300};
-`;
-
-export const H4 = styled(BaseTypography).attrs({ as: 'h4' })`
-  font-size: ${({ fontSize }) => (fontSize as string) || '1.5rem'};
-  font-weight: 600;
-  line-height: ${({ lineHeight }) => (lineHeight as string) || '2.25rem'};
+export const Title = styled(BaseTypography).attrs({ as: 'h2' })`
+  font-size: ${({ fontSize }) => (fontSize as string) || '1.75rem'};
+  font-weight: ${({ fontWeight }) => (fontWeight as string) || '700'};
+  line-height: ${({ lineHeight }) => (lineHeight as string) || '2rem'};
   color: ${({ color }) => color || COLORS.GRAY_300};
 `;
 
 export const Text = styled(BaseTypography).attrs({ as: 'span' })`
-  font-size: ${({ fontSize }) => (fontSize as string) || '1.125rem'};
-  font-weight: 600;
-  line-height: ${({ lineHeight }) => (lineHeight as string) || '1.5rem'};
+  font-size: ${({ fontSize, level = 'default' }) =>
+    (fontSize as string) || textBaseStyle[level].size};
+  font-weight: ${({ fontWeight, level = 'default' }) =>
+    (fontWeight as string) || textBaseStyle[level].weight};
+  line-height: ${({ lineHeight, level = 'default' }) =>
+    (lineHeight as string) || textBaseStyle[level].lineHeight};
   color: ${({ color }) => color || COLORS.GRAY_300};
 `;
