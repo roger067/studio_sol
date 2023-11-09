@@ -1,10 +1,33 @@
+import { useState } from 'react';
 import { AuthorCard, BookCard, Layout } from '../components';
-import { Container, Title, Tab, Flex, Text, COLORS, Card } from '../ui';
+import {
+  Container,
+  Title,
+  Tab,
+  Flex,
+  Text,
+  COLORS,
+  Card,
+  FilterPill,
+} from '../ui';
+import { BOOK_CATEGORIES } from '../services/types';
 
 const BookList = () => {
+  const [activePill, setActivePill] = useState('all');
+
   const items = [
     { key: 'my-books', label: 'Meus livros' },
     { key: 'borrowed', label: 'Emprestados' },
+  ];
+
+  const categories = [
+    { key: 'all', label: 'Todos' },
+    { key: 'romance', label: BOOK_CATEGORIES.ROMANCE },
+    { key: 'adventure', label: BOOK_CATEGORIES.ADVENTURE },
+    { key: 'comedy', label: BOOK_CATEGORIES.COMEDY },
+    { key: 'horror', label: BOOK_CATEGORIES.HORROR },
+    { key: 'technology', label: BOOK_CATEGORIES.ADVENTURE },
+    { key: 'travel', label: BOOK_CATEGORIES.TRAVEL },
   ];
 
   return (
@@ -60,6 +83,14 @@ const BookList = () => {
               quantity={6}
             />
           </Flex>
+          <Title mt="40px" mb="24px">
+            Biblioteca
+          </Title>
+          <FilterPill
+            items={categories}
+            activePill={activePill}
+            onChange={(key) => setActivePill(key)}
+          />
         </Container>
       </Card>
     </Layout>
