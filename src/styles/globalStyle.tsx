@@ -11,6 +11,10 @@ const GlobalStyle = createGlobalStyle`
     background-color: #F7F7F7;
     font-family: 'Roboto', sans-serif;
   }
+
+  #root {
+    height: 100%;
+  }
 `;
 
 export default GlobalStyle;

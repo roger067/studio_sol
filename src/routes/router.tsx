@@ -1,10 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { BookList } from '../pages';
+import { BookList, BookDetail } from '../pages';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <BookList />,
+  },
+  {
+    path: '/:id',
+    element: <BookDetail />,
   },
 ]);
 
