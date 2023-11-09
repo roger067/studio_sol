@@ -5,32 +5,49 @@ interface BookCardProps {
   image: string;
   title: string;
   author: string;
+  direction?: 'vertical' | 'horizontal';
 }
 
-const BookCard: React.FC<BookCardProps> = ({ image, title, author }) => (
-  <Card flexDirection="column" width="100%" flex="1" gap="4px">
-    <img src={image} alt="book" />
-    <Text level="large" className="title">
-      {title}
-    </Text>
-    <Text color={COLORS.GRAY_300}>{author}</Text>
-  </Card>
-);
+const BookCard: React.FC<BookCardProps> = ({
+  image,
+  title,
+  author,
+  direction = 'vertical',
+}) => {
+  const isHorizontal = direction === 'horizontal';
 
-const Card = styled(Flex)`
+  return (
+    <Card
+      flexDirection={isHorizontal ? 'row' : 'column'}
+      alignItems={isHorizontal ? 'center' : 'normal'}
+      width={isHorizontal ? 'calc(33.3% - 16px)' : '100%'}
+      gap={isHorizontal ? '24px' : '12px'}
+      isHorizontal={isHorizontal}
+    >
+      <img src={image} alt="book" />
+      <Flex flexDirection="column">
+        <Text level="large" className="title" mb="4px">
+          {title}
+        </Text>
+        <Text color={COLORS.GRAY_300}>{author}</Text>
+      </Flex>
+    </Card>
+  );
+};
+
+const Card = styled(Flex)<{ isHorizontal: boolean }>`
   img {
     border-radius: 8px;
-    width: 100%;
-    height: 198px;
+    width: ${({ isHorizontal }) => (isHorizontal ? '68px' : '100%')};
+    height: ${({ isHorizontal }) => (isHorizontal ? '100px' : '198px')};
     object-fit: cover;
-    margin-bottom: 8px;
   }
 
   .title {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Number of lines to show */
+    -webkit-line-clamp: ${({ isHorizontal }) => (isHorizontal ? '3' : '2')};
     -webkit-box-orient: vertical;
   }
 `;

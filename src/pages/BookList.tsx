@@ -91,6 +91,44 @@ const BookList = () => {
             activePill={activePill}
             onChange={(key) => setActivePill(key)}
           />
+          <Flex mt="24px" mb="56px" gap="24px" flexWrap="wrap">
+            <BookCard
+              image="https://picsum.photos/300"
+              title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
+              author="Julia Quinn"
+              direction="horizontal"
+            />
+            <BookCard
+              image="https://picsum.photos/300"
+              title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
+              author="Julia Quinn"
+              direction="horizontal"
+            />
+            <BookCard
+              image="https://picsum.photos/300"
+              title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
+              author="Julia Quinn"
+              direction="horizontal"
+            />
+            <BookCard
+              image="https://picsum.photos/300"
+              title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
+              author="Julia Quinn"
+              direction="horizontal"
+            />
+            <BookCard
+              image="https://picsum.photos/300"
+              title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
+              author="Julia Quinn"
+              direction="horizontal"
+            />
+            <BookCard
+              image="https://picsum.photos/300"
+              title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
+              author="Julia Quinn"
+              direction="horizontal"
+            />
+          </Flex>
         </Container>
       </Card>
     </Layout>
