@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+interface ContainerProps {
+  float?: 'left' | 'center' | 'right';
+}
+
+const Container = styled.div<ContainerProps>`
   width: 100%;
   padding-right: 16px;
   padding-left: 16px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: ${({ float = 'center' }) => (float === 'right' ? '0' : 'auto')};
+  margin-left: ${({ float = 'center' }) => (float === 'left' ? '0' : 'auto')};
 
   @media (min-width: 576px) {
     max-width: 540px;
@@ -21,6 +25,11 @@ const Container = styled.div`
 
   @media (min-width: 1200px) {
     max-width: 1140px;
+  }
+
+  @media (max-width: 1200px) {
+    margin-right: auto;
+    margin-left: auto;
   }
 `;
 

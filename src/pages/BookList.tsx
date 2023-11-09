@@ -1,5 +1,5 @@
-import { BookCard, Layout } from '../components';
-import { Container, Title, Tab, Flex, Text, COLORS } from '../ui';
+import { AuthorCard, BookCard, Layout } from '../components';
+import { Container, Title, Tab, Flex, Text, COLORS, Card } from '../ui';
 
 const BookList = () => {
   const items = [
@@ -11,7 +11,7 @@ const BookList = () => {
     <Layout>
       <Container>
         <Tab items={items} activeKey="my-books" />
-        <Flex justifyContent="space-between" alignItems="flex-end" my="32px">
+        <Flex justifyContent="space-between" alignItems="flex-end" my="24px">
           <Title margin="0">Livros favoritos</Title>
           <Text level="large" color={COLORS.PURPLE_100}>
             ver mais
@@ -30,6 +30,38 @@ const BookList = () => {
           <BookCard image="https://picsum.photos/300" author="" title="" />
         </Flex>
       </Container>
+      <Card mt="24px">
+        <Container float="left">
+          <Flex
+            justifyContent="space-between"
+            alignItems="flex-end"
+            flex="1"
+            mb="24px"
+          >
+            <Title margin="0">Autores favoritos</Title>
+            <Text level="large" color={COLORS.PURPLE_100}>
+              ver mais
+            </Text>
+          </Flex>
+          <Flex gap="24px">
+            <AuthorCard
+              image="https://picsum.photos/300"
+              name="Julia Quinn"
+              quantity={6}
+            />
+            <AuthorCard
+              image="https://picsum.photos/300"
+              name="Julia Quinn"
+              quantity={6}
+            />
+            <AuthorCard
+              image="https://picsum.photos/300"
+              name="Julia Quinn"
+              quantity={6}
+            />
+          </Flex>
+        </Container>
+      </Card>
     </Layout>
   );
 };

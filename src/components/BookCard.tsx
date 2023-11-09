@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Flex, Text } from '../ui';
+import { COLORS, Flex, Text } from '../ui';
 
 interface BookCardProps {
   image: string;
@@ -13,7 +13,7 @@ const BookCard: React.FC<BookCardProps> = ({ image, title, author }) => (
     <Text level="large" className="title">
       {title}
     </Text>
-    <Text>{author}</Text>
+    <Text color={COLORS.GRAY_300}>{author}</Text>
   </Card>
 );
 

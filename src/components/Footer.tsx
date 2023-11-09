@@ -26,7 +26,6 @@ const FooterTag = styled.footer`
   width: 100%;
   background-color: ${COLORS.PURPLE_100};
   padding: 28px 0;
-  margin-top: 48px;
 `;
 
 export default Footer;

@@ -7,7 +7,7 @@ import { ReactComponent as Plus } from '../assets/icons/plus.svg';
 
 const Header = () => (
   <HeaderTag>
-    <Container>
+    <Container float="right">
       <Flex justifyContent="space-between" alignItems="center">
         <Logo />
         <Flex gap="24px">
@@ -31,8 +31,9 @@ const Header = () => (
 
 const HeaderTag = styled.header`
   width: 100%;
+  max-width: calc(16px + 1140px + (100vw - 1140px) / 2);
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
-  padding: 16px 0;
+  padding: 16px 16px 16px 0;
   border-radius: 0 0 32px 0;
   background-color: ${COLORS.WHITE};
 

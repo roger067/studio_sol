@@ -40,7 +40,7 @@ export const Title = styled(BaseTypography).attrs({ as: 'h2' })`
   font-size: ${({ fontSize }) => (fontSize as string) || '1.75rem'};
   font-weight: ${({ fontWeight }) => (fontWeight as string) || '700'};
   line-height: ${({ lineHeight }) => (lineHeight as string) || '2rem'};
-  color: ${({ color }) => color || COLORS.GRAY_300};
+  color: ${({ color }) => color || COLORS.GRAY_400};
 `;
 
 export const Text = styled(BaseTypography).attrs({ as: 'span' })`
@@ -50,5 +50,5 @@ export const Text = styled(BaseTypography).attrs({ as: 'span' })`
     (fontWeight as string) || textBaseStyle[level].weight};
   line-height: ${({ lineHeight, level = 'default' }) =>
     (lineHeight as string) || textBaseStyle[level].lineHeight};
-  color: ${({ color }) => color || COLORS.GRAY_300};
+  color: ${({ color }) => color || COLORS.GRAY_400};
 `;
