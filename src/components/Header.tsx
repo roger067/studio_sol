@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS, Container, Flex, Text } from '../ui';
+import { COLORS, Container, Flex, Tab, Text } from '../ui';
 
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as Heart } from '../assets/icons/heart.svg';
@@ -9,29 +9,37 @@ interface HeaderProps {
   hideOnMobileDevice?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ hideOnMobileDevice = false }) => (
-  <HeaderTag hideOnMobileDevice={hideOnMobileDevice}>
-    <Container float="right">
-      <Flex justifyContent="space-between" alignItems="center">
-        <Logo />
-        <Flex gap="24px">
-          <Flex gap="12px" alignItems="center">
-            <Plus />
-            <Text fontWeight={700}>Adicionar</Text>
-          </Flex>
-          <Flex gap="12px" alignItems="center">
-            <Heart />
-            <Text fontWeight={700}>Favoritos</Text>
-          </Flex>
-          <Flex gap="12px" alignItems="center" className="user">
-            <Avatar />
-            <Text fontWeight={700}>Nome da silva</Text>
+const Header: React.FC<HeaderProps> = ({ hideOnMobileDevice = false }) => {
+  const items = [
+    { key: 'my-books', label: 'Meus livros' },
+    { key: 'borrowed', label: 'Emprestados' },
+  ];
+
+  return (
+    <HeaderTag hideOnMobileDevice={hideOnMobileDevice}>
+      <Container float="right">
+        <Flex justifyContent="space-between" alignItems="center">
+          <Logo />
+          <Flex gap="24px">
+            <Flex gap="12px" alignItems="center" className="menu-item">
+              <Plus />
+              <Text fontWeight={700}>Adicionar</Text>
+            </Flex>
+            <Flex gap="12px" alignItems="center" className="menu-item">
+              <Heart />
+              <Text fontWeight={700}>Favoritos</Text>
+            </Flex>
+            <Flex gap="12px" alignItems="center" className="user">
+              <Avatar />
+              <Text fontWeight={700}>Nome da silva</Text>
+            </Flex>
           </Flex>
         </Flex>
-      </Flex>
-    </Container>
-  </HeaderTag>
-);
+        <Tab items={items} activeKey="my-books" />
+      </Container>
+    </HeaderTag>
+  );
+};
 
 const HeaderTag = styled.header.withConfig({
   shouldForwardProp: (prop) => prop !== 'hideOnMobileDevice',
@@ -48,9 +56,39 @@ const HeaderTag = styled.header.withConfig({
     border-left: 1px solid ${COLORS.GRAY_100};
   }
 
+  .tab {
+    display: none;
+  }
+
   @media (max-width: 768px) {
     display: ${({ hideOnMobileDevice }) =>
       hideOnMobileDevice ? 'none' : 'block'};
+
+    padding-bottom: 0;
+
+    .menu-item {
+      display: none;
+    }
+
+    .user {
+      padding: 0;
+      border: none;
+
+      span {
+        display: none;
+      }
+    }
+
+    .tab {
+      display: flex;
+      border-bottom: none;
+      margin-top: 8px;
+
+      span {
+        font-size: 0.875rem;
+        line-height: 1rem;
+      }
+    }
   }
 `;
 

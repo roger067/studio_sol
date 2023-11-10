@@ -20,7 +20,6 @@ const BookCard: React.FC<BookCardProps> = ({
     <Card
       flexDirection={isHorizontal ? 'row' : 'column'}
       alignItems={isHorizontal ? 'center' : 'normal'}
-      width={isHorizontal ? 'calc(33.3% - 16px)' : '100%'}
       gap={isHorizontal ? '24px' : '12px'}
       isHorizontal={isHorizontal}
     >
@@ -35,7 +34,12 @@ const BookCard: React.FC<BookCardProps> = ({
   );
 };
 
-const Card = styled(Flex)<{ isHorizontal: boolean }>`
+const Card = styled(Flex).withConfig({
+  shouldForwardProp: (prop) => prop !== 'isHorizontal',
+})<{ isHorizontal: boolean }>`
+  width: ${({ isHorizontal }) =>
+    isHorizontal ? 'calc(33.3% - 16px)' : '100%'};
+
   img {
     border-radius: 8px;
     width: ${({ isHorizontal }) => (isHorizontal ? '68px' : '100%')};
@@ -49,6 +53,12 @@ const Card = styled(Flex)<{ isHorizontal: boolean }>`
     display: -webkit-box;
     -webkit-line-clamp: ${({ isHorizontal }) => (isHorizontal ? '3' : '2')};
     -webkit-box-orient: vertical;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: ${({ isHorizontal }) => (isHorizontal ? '100%' : '136px')};
+    min-width: ${({ isHorizontal }) => (isHorizontal ? '100%' : '136px')};
   }
 `;
 

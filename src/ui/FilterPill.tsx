@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS, Flex, Text } from '.';
+import { COLORS, Swiper, Text } from '.';
 
 interface FilterPillProps {
   activePill: string;
@@ -12,7 +12,7 @@ const FilterPill: React.FC<FilterPillProps> = ({
   items,
   onChange,
 }) => (
-  <Flex gap="8px">
+  <Swiper gap="8px">
     {items.map((item) => (
       <Pill
         key={item.key}
@@ -22,7 +22,7 @@ const FilterPill: React.FC<FilterPillProps> = ({
         <Text>{item.label}</Text>
       </Pill>
     ))}
-  </Flex>
+  </Swiper>
 );
 
 const Pill = styled.button`

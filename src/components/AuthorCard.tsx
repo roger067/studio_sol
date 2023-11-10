@@ -23,6 +23,10 @@ const Card = styled(Flex)`
   border-radius: 8px;
   border: 1px solid ${COLORS.GRAY_100};
 
+  span {
+    text-wrap: nowrap;
+  }
+
   img {
     width: 68px;
     height: 68px;

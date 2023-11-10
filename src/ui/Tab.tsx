@@ -5,11 +5,17 @@ import { COLORS, Flex, Text } from '.';
 interface TabProps {
   items: { key: string; label: string }[];
   activeKey?: string;
+  className?: string;
   onChange?: (key: string) => void;
 }
 
-const Tab: React.FC<TabProps> = ({ items, activeKey, onChange }) => (
-  <TabWrapper mt="32px" gap="20px">
+const Tab: React.FC<TabProps> = ({
+  items,
+  activeKey,
+  className = '',
+  onChange,
+}) => (
+  <TabWrapper mt="32px" gap="20px" className={`tab ${className}`}>
     {items.map((item) => (
       <button
         key={item.key}
@@ -39,6 +45,12 @@ const TabWrapper = styled(Flex)`
 
     &:hover {
       background-color: ${COLORS.GRAY_100};
+    }
+  }
+
+  @media (max-width: 768px) {
+    &.sm-hidden {
+      display: none;
     }
   }
 `;

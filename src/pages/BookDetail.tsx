@@ -7,7 +7,7 @@ const BookDetail = () => (
       <Flex
         flexDirection="column"
         ml="320px"
-        display={['none', 'flex']}
+        display={['none', 'none', 'flex']}
         mt="24px"
         gap="12px"
       >

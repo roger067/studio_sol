@@ -40,11 +40,16 @@ const BookCardDetail = () => (
       <Flex flex="2" flexDirection="column">
         <Flex
           flexDirection="column"
-          display={['flex', 'none']}
+          display={['flex', 'flex', 'none']}
           gap="12px"
           mb="24px"
         >
-          <Title fontSize="1.25rem" lineHeight="1.5rem" as="h1" my="0">
+          <Title
+            fontSize={['1.25rem', '1.75rem', '1.75rem']}
+            lineHeight="1.5rem"
+            as="h1"
+            my="0"
+          >
             O duque e eu: O livro de Daphne
           </Title>
           <Text color={COLORS.GRAY_400}>Julia Quinn</Text>
@@ -121,6 +126,12 @@ const CardDetailTag = styled(Card)`
       svg > path {
         fill: ${COLORS.PURPLE_100};
       }
+    }
+  }
+
+  @media (max-width: 832px) {
+    img {
+      margin-top: 0;
     }
   }
 

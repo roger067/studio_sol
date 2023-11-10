@@ -9,6 +9,7 @@ import {
   COLORS,
   Card,
   FilterPill,
+  Swiper,
 } from '../ui';
 import { BOOK_CATEGORIES } from '../services/types';
 
@@ -33,14 +34,14 @@ const BookList = () => {
   return (
     <Layout>
       <Container>
-        <Tab items={items} activeKey="my-books" />
+        <Tab items={items} activeKey="my-books" className="sm-hidden" />
         <Flex justifyContent="space-between" alignItems="flex-end" my="24px">
           <Title margin="0">Livros favoritos</Title>
           <Text level="large" color={COLORS.PURPLE_100}>
             ver mais
           </Text>
         </Flex>
-        <Flex gap="24px">
+        <Swiper gap="24px">
           <BookCard
             image="https://picsum.photos/300"
             title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
@@ -51,7 +52,7 @@ const BookList = () => {
           <BookCard image="https://picsum.photos/300" author="" title="" />
           <BookCard image="https://picsum.photos/300" author="" title="" />
           <BookCard image="https://picsum.photos/300" author="" title="" />
-        </Flex>
+        </Swiper>
       </Container>
       <Card mt="24px">
         <Container float="left">
@@ -66,7 +67,7 @@ const BookList = () => {
               ver mais
             </Text>
           </Flex>
-          <Flex gap="24px">
+          <Swiper gap="24px">
             <AuthorCard
               image="https://picsum.photos/300"
               name="Julia Quinn"
@@ -82,7 +83,7 @@ const BookList = () => {
               name="Julia Quinn"
               quantity={6}
             />
-          </Flex>
+          </Swiper>
           <Title mt="40px" mb="24px">
             Biblioteca
           </Title>
