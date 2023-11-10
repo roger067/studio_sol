@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { COLORS, Container, Flex, Text } from '../ui';
+import { COLORS, Container, Flex, Text } from '../../ui';
 
-import { ReactComponent as Logo } from '../assets/logo-white.svg';
+import { ReactComponent as Logo } from '../../assets/logo-white.svg';
 
 const Footer = () => (
   <FooterTag>

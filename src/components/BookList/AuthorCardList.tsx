@@ -1,6 +1,6 @@
-import { AuthorCard } from '.';
-import { useGetAuthorsQuery } from '../services/booksApi';
-import { Swiper } from '../ui';
+import { AuthorCard } from '..';
+import { useGetAuthorsQuery } from '../../services/booksApi';
+import { Swiper } from '../../ui';
 
 const AuthorCardList = () => {
   const { data, isLoading } = useGetAuthorsQuery();

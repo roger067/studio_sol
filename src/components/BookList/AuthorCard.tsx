@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { COLORS, Flex, Text } from '../ui';
+import { COLORS, Flex, Text } from '../../ui';
 
 interface AuthorCardProps {
   image: string;

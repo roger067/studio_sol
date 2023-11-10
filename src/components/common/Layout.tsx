@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { Header, Footer, FixedMenu } from '.';
+import { Header, Footer, FixedMenu } from '..';
 
 const Layout: React.FC<PropsWithChildren<{ hideOnMobileDevice?: boolean }>> = ({
   children,

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { COLORS, Container, Flex, Tab, Text } from '../ui';
+import { COLORS, Container, Flex, Tab, Text } from '../../ui';
 
-import { ReactComponent as Logo } from '../assets/logo.svg';
-import { ReactComponent as Heart } from '../assets/icons/heart.svg';
-import { ReactComponent as Plus } from '../assets/icons/plus.svg';
+import { ReactComponent as Logo } from '../../assets/logo.svg';
+import { ReactComponent as Heart } from '../../assets/icons/heart.svg';
+import { ReactComponent as Plus } from '../../assets/icons/plus.svg';
 import { Link } from 'react-router-dom';
-import { useGetUserPhotoQuery } from '../services/booksApi';
+import { useGetUserPhotoQuery } from '../../services/booksApi';
 
 interface HeaderProps {
   hideOnMobileDevice?: boolean;

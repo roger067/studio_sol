@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import { COLORS, Flex, Text } from '../ui';
+import { COLORS, Flex, Text } from '../../ui';
 
-import { ReactComponent as ArrowLeft } from '../assets/icons/arrow-left.svg';
-import { ReactComponent as Ellipse } from '../assets/icons/ellipse.svg';
-import { ReactComponent as Heart } from '../assets/icons/heart.svg';
-import { ReactComponent as Share } from '../assets/icons/share.svg';
-import { ReactComponent as Download } from '../assets/icons/download.svg';
+import { ReactComponent as ArrowLeft } from '../../assets/icons/arrow-left.svg';
+import { ReactComponent as Ellipse } from '../../assets/icons/ellipse.svg';
+import { ReactComponent as Heart } from '../../assets/icons/heart.svg';
+import { ReactComponent as Share } from '../../assets/icons/share.svg';
+import { ReactComponent as Download } from '../../assets/icons/download.svg';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 

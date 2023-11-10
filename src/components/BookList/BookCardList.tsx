@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { Swiper } from '../ui';
-import { BookCard } from '.';
-import { useGetFavoriteBooksQuery } from '../services/booksApi';
+import { Swiper } from '../../ui';
+import { BookCard } from '..';
+import { useGetFavoriteBooksQuery } from '../../services/booksApi';
 
 const BookCardList = () => {
   const { data, isLoading } = useGetFavoriteBooksQuery();

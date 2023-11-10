@@ -1,6 +1,6 @@
-import { BookCard } from '.';
-import { useGetBooksQuery } from '../services/booksApi';
-import { Flex } from '../ui';
+import { BookCard } from '..';
+import { useGetBooksQuery } from '../../services/booksApi';
+import { Flex } from '../../ui';
 
 const AllBookList = () => {
   const { data } = useGetBooksQuery();
