@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { COLORS, Container, Flex, Input, Tab, Text } from '../../ui';
 
-import { ReactComponent as Logo } from '../../assets/logo.svg';
-import { ReactComponent as Heart } from '../../assets/icons/heart.svg';
-import { ReactComponent as Plus } from '../../assets/icons/plus.svg';
+import Logo from '../../assets/logo.svg?react';
+import Heart from '../../assets/icons/heart.svg?react';
+import Plus from '../../assets/icons/plus.svg?react';
 import { Link } from 'react-router-dom';
 import { useGetUserPhotoQuery } from '../../services/booksApi';
 

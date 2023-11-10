@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { COLORS, Container, Flex, Text } from '../../ui';
 
-import { ReactComponent as Logo } from '../../assets/logo-white.svg';
+import Logo from '../../assets/logo-white.svg?react';
 
 const Footer = () => (
   <FooterTag>

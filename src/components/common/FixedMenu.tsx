@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 import { COLORS, Flex, Text } from '../../ui';
 
-import { ReactComponent as Heart } from '../../assets/icons/heart.svg';
-import { ReactComponent as Plus } from '../../assets/icons/plus.svg';
-import { ReactComponent as Home } from '../../assets/icons/home.svg';
-import { ReactComponent as Search } from '../../assets/icons/search.svg';
+import Heart from '../../assets/icons/heart.svg?react';
+import Plus from '../../assets/icons/plus.svg?react';
+import Home from '../../assets/icons/home.svg?react';
+import Search from '../../assets/icons/search.svg?react';
 
 interface FixedMenuProps {
   currentRoute: string;

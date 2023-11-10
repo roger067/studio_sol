@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ReactComponent as Search } from '../assets/icons/search.svg';
+import Search from '../assets/icons/search.svg?react';
 import { COLORS } from '.';
 
 const Input = () => (
