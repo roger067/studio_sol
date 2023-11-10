@@ -8,7 +8,13 @@ import { ReactComponent as Download } from '../assets/icons/download.svg';
 const BookCardDetail = () => (
   <CardDetailTag mt="32px">
     <Container float="left" className="content">
-      <Flex flex="1" maxWidth="296px" flexDirection="column" gap="16px">
+      <Flex
+        flex="1"
+        maxWidth="296px"
+        flexDirection="column"
+        gap="16px"
+        className="side-info"
+      >
         <img src="https://picsum.photos/300" alt="book-cover" />
         <Flex flexDirection="column" mt="16px" gap="24px">
           <Flex gap="12px" alignItems="center" className="menu-item">
@@ -32,7 +38,18 @@ const BookCardDetail = () => (
         </Flex>
       </Flex>
       <Flex flex="2" flexDirection="column">
-        <Text fontSize="1.125rem" mb="16px" lineHeight="1.5rem">
+        <Flex
+          flexDirection="column"
+          display={['flex', 'none']}
+          gap="12px"
+          mb="24px"
+        >
+          <Title fontSize="1.25rem" lineHeight="1.5rem" as="h1" my="0">
+            O duque e eu: O livro de Daphne
+          </Title>
+          <Text color={COLORS.GRAY_300}>Julia Quinn</Text>
+        </Flex>
+        <Text fontSize={['1rem', '1.125rem']} mb="16px" lineHeight="1.5rem">
           Simon Basset, o irresistível duque de Hastings, acaba de retornar a
           Londres depois de seis anos viajando pelo mundo. Rico, bonito e
           solteiro, ele é um prato cheio para as mães da alta sociedade, que só
@@ -49,8 +66,10 @@ const BookCardDetail = () => (
           pretendentes para Daphne. Afinal, se um duque está interessado nela, a
           jovem deve ter mais atrativos do que aparenta.
         </Text>
-        <Title my="24px">Sobre o Autor</Title>
-        <Text fontSize="1.125rem" mb="16px" lineHeight="1.5rem">
+        <Title my="24px" fontSize={['1.125rem', '1.75rem']}>
+          Sobre o Autor
+        </Title>
+        <Text fontSize={['1rem', '1.125rem']} mb="16px" lineHeight="1.5rem">
           JULIA QUINN começou a trabalhar em seu primeiro romance um mês de -
           pois de terminar a faculdade e nunca mais parou de escrever. Seus
           livros foram traduzidos para 37 idiomas e, no Brasil, venderam mais de
@@ -67,9 +86,11 @@ const BookCardDetail = () => (
 const CardDetailTag = styled(Card)`
   min-height: 70%;
   padding-bottom: 80px;
+  z-index: 10;
 
   .content {
     display: flex;
+    height: 100%;
     gap: 32px;
   }
 
@@ -100,6 +121,18 @@ const CardDetailTag = styled(Card)`
       svg > path {
         fill: ${COLORS.PURPLE_100};
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    position: absolute;
+    bottom: 0;
+    overflow: auto;
+    max-height: 75%;
+    padding: 32px 0 32px 0;
+
+    .side-info {
+      display: none;
     }
   }
 `;

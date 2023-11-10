@@ -1,9 +1,12 @@
 import { PropsWithChildren } from 'react';
 import { Header, Footer } from '.';
 
-const Layout: React.FC<PropsWithChildren<object>> = ({ children }) => (
+const Layout: React.FC<PropsWithChildren<{ hideOnMobileDevice?: boolean }>> = ({
+  children,
+  hideOnMobileDevice,
+}) => (
   <>
-    <Header />
+    <Header hideOnMobileDevice={hideOnMobileDevice} />
     {children}
     <Footer />
   </>
