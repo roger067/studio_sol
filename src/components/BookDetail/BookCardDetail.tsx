@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { COLORS, Card, Container, Flex, Text, Title } from '../../ui';
 
-import { ReactComponent as Heart } from '../assets/icons/heart.svg';
-import { ReactComponent as Share } from '../assets/icons/share.svg';
-import { ReactComponent as Download } from '../assets/icons/download.svg';
+import { ReactComponent as Heart } from '../../assets/icons/heart.svg';
+import { ReactComponent as Share } from '../../assets/icons/share.svg';
+import { ReactComponent as Download } from '../../assets/icons/download.svg';
 
 interface BookCardDetailProps {
   urlImage: string;
