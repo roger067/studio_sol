@@ -5,4 +5,6 @@ export { default as Tab } from './Tab';
 export { default as Card } from './Card';
 export { default as FilterPill } from './FilterPill';
 export { default as Swiper } from './Swiper';
+export { default as Skeleton } from './Skeleton';
+export { default as ErrorMessage } from './ErrorMessage';
 export { Title, Text } from './Typography';

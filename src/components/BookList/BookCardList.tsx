@@ -1,15 +1,23 @@
 import styled from 'styled-components';
 
-import { Swiper } from '../../ui';
+import { Skeleton, Swiper, Flex, ErrorMessage } from '../../ui';
 import { BookCard } from '..';
 import { useGetFavoriteBooksQuery } from '../../services/booksApi';
 
 const BookCardList = () => {
-  const { data, isLoading } = useGetFavoriteBooksQuery();
+  const { data, isLoading, isError } = useGetFavoriteBooksQuery();
+
+  if (isError)
+    return (
+      <ErrorMessage
+        title="Algo deu errado!"
+        description="Tente carregar a página novamente..."
+      />
+    );
 
   return (
     <CardList gap="24px">
-      {data &&
+      {data && !isLoading ? (
         data.favoriteBooks.map((book) => (
           <BookCard
             key={book.id}
@@ -18,7 +26,18 @@ const BookCardList = () => {
             title={book.name}
             author={book.author.name}
           />
-        ))}
+        ))
+      ) : (
+        <Flex width="100%" gap="24px">
+          {Array.from({ length: 7 }, (_, index) => (
+            <Flex key={index} flexDirection="column" width="100%" gap="12px">
+              <Skeleton height="198px" />
+              <Skeleton />
+              <Skeleton />
+            </Flex>
+          ))}
+        </Flex>
+      )}
     </CardList>
   );
 };
