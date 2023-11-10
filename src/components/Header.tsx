@@ -14,7 +14,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ hideOnMobileDevice = false }) => {
   const { data } = useGetUserPhotoQuery();
 
-  const items = [
+  const tabItems = [
     { key: 'my-books', label: 'Meus livros' },
     { key: 'borrowed', label: 'Emprestados' },
   ];
@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ hideOnMobileDevice = false }) => {
             </Flex>
           </Flex>
         </Flex>
-        <Tab items={items} activeKey="my-books" />
+        <Tab items={tabItems} activeKey="my-books" />
       </Container>
     </HeaderTag>
   );

@@ -7,7 +7,7 @@ const Card = styled(Flex)`
   background-color: ${COLORS.WHITE};
   border-radius: 32px 0 0 0;
   width: 100%;
-  max-width: calc(16px + 1140px + (100vw - 1140px) / 2);
+  max-width: calc(8px + 1140px + (100vw - 1140px) / 2);
   margin-left: auto;
 `;
 
