@@ -29,7 +29,7 @@ const BookCard: React.FC<BookCardProps> = ({
         <Text level="large" className="title" mb="4px">
           {title}
         </Text>
-        <Text color={COLORS.GRAY_300}>{author}</Text>
+        <Text color={COLORS.GRAY_400}>{author}</Text>
       </Flex>
     </Card>
   );

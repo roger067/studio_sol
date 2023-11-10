@@ -13,7 +13,7 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ image, quantity, name }) => (
     <img src={image} alt="author" />
     <Flex flexDirection="column" gap="6px">
       <Text level="large">{name}</Text>
-      <Text color={COLORS.GRAY_300}>{quantity} livros</Text>
+      <Text color={COLORS.GRAY_400}>{quantity} livros</Text>
     </Flex>
   </Card>
 );

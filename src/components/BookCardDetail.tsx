@@ -47,7 +47,7 @@ const BookCardDetail = () => (
           <Title fontSize="1.25rem" lineHeight="1.5rem" as="h1" my="0">
             O duque e eu: O livro de Daphne
           </Title>
-          <Text color={COLORS.GRAY_300}>Julia Quinn</Text>
+          <Text color={COLORS.GRAY_400}>Julia Quinn</Text>
         </Flex>
         <Text fontSize={['1rem', '1.125rem']} mb="16px" lineHeight="1.5rem">
           Simon Basset, o irresistível duque de Hastings, acaba de retornar a
@@ -129,7 +129,7 @@ const CardDetailTag = styled(Card)`
     bottom: 0;
     overflow: auto;
     max-height: 75%;
-    padding: 32px 0 32px 0;
+    padding: 32px 0 56px 0;
 
     .side-info {
       display: none;

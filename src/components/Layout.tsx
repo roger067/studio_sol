@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { Header, Footer } from '.';
+import { Header, Footer, FixedMenu } from '.';
 
 const Layout: React.FC<PropsWithChildren<{ hideOnMobileDevice?: boolean }>> = ({
   children,
@@ -8,6 +8,7 @@ const Layout: React.FC<PropsWithChildren<{ hideOnMobileDevice?: boolean }>> = ({
   <>
     <Header hideOnMobileDevice={hideOnMobileDevice} />
     {children}
+    <FixedMenu currentRoute="home" />
     <Footer />
   </>
 );

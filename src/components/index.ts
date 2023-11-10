@@ -5,3 +5,4 @@ export { default as BookCard } from './BookCard';
 export { default as AuthorCard } from './AuthorCard';
 export { default as BookCardDetail } from './BookCardDetail';
 export { default as BookBackground } from './BookBackground';
+export { default as FixedMenu } from './FixedMenu';

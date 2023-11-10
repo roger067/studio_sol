@@ -37,7 +37,7 @@ const Pill = styled.button`
   span {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    color: ${COLORS.GRAY_300};
+    color: ${COLORS.GRAY_400};
   }
 
   &:hover {

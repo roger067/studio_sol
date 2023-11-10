@@ -14,7 +14,7 @@ const BookDetail = () => (
         <Title fontSize="2.125rem" lineHeight="2.5rem" as="h1" my="0">
           O duque e eu: O livro de Daphne
         </Title>
-        <Text color={COLORS.GRAY_300} fontSize="1.5rem">
+        <Text color={COLORS.GRAY_400} fontSize="1.5rem">
           Julia Quinn
         </Text>
       </Flex>
