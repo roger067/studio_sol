@@ -15,7 +15,9 @@ const shimmer = keyframes`
   }
 `;
 
-const Skeleton = styled.div<SkeletonProps>`
+const Skeleton = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== 'borderRadius',
+})<SkeletonProps>`
   min-width: ${(props) => props.width || '100%'};
   width: ${(props) => props.width || '100%'};
   height: ${(props) => props.height || '20px'};

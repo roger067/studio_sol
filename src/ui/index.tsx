@@ -7,4 +7,5 @@ export { default as FilterPill } from './FilterPill';
 export { default as Swiper } from './Swiper';
 export { default as Skeleton } from './Skeleton';
 export { default as ErrorMessage } from './ErrorMessage';
+export { default as Input } from './Input';
 export { Title, Text } from './Typography';

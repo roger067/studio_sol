@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS, Container, Flex, Tab, Text } from '../../ui';
+import { COLORS, Container, Flex, Input, Tab, Text } from '../../ui';
 
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 import { ReactComponent as Heart } from '../../assets/icons/heart.svg';
@@ -27,6 +27,9 @@ const Header: React.FC<HeaderProps> = ({ hideOnMobileDevice = false }) => {
             <Logo />
           </Link>
           <Flex gap="24px">
+            <Flex alignItems="center" ml="24px" className="menu-item">
+              <Input />
+            </Flex>
             <Flex gap="12px" alignItems="center" className="menu-item">
               <Plus />
               <Text fontWeight={700}>Adicionar</Text>
