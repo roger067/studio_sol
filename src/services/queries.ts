@@ -52,6 +52,7 @@ export const GET_BOOK_BY_ID = gql`
       name
       cover
       description
+      isFavorite
       author {
         name
       }

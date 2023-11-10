@@ -58,14 +58,24 @@ const BookCardDetail: React.FC<BookCardDetailProps> = ({
           gap="12px"
           mb="24px"
         >
-          <Title
-            fontSize={['1.25rem', '1.75rem', '1.75rem']}
-            lineHeight="1.5rem"
-            as="h1"
-            my="0"
+          <Flex
+            alignItems="center"
+            width="100%"
+            gap="16px"
+            justifyContent="space-between"
           >
-            {title}
-          </Title>
+            <Title
+              fontSize={['1.25rem', '1.75rem', '1.75rem']}
+              lineHeight="1.5rem"
+              as="h1"
+              my="0"
+            >
+              {title}
+            </Title>
+            <Flex className={`icon-wrapper ${isFavorite ? 'active' : ''}`}>
+              <Heart />
+            </Flex>
+          </Flex>
           <Text color={COLORS.GRAY_400}>{author}</Text>
         </Flex>
         <Text fontSize={['1rem', '1.125rem']} mb="16px" lineHeight="1.5rem">
@@ -126,6 +136,12 @@ const CardDetailTag = styled(Card)`
       svg > path {
         fill: ${COLORS.PURPLE_100};
       }
+    }
+  }
+
+  .icon-wrapper.active {
+    svg path {
+      fill: ${COLORS.PURPLE_100};
     }
   }
 
