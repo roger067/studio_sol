@@ -4,12 +4,16 @@ import { COLORS, Container, Flex, Tab, Text } from '../ui';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as Heart } from '../assets/icons/heart.svg';
 import { ReactComponent as Plus } from '../assets/icons/plus.svg';
+import { Link } from 'react-router-dom';
+import { useGetUserPhotoQuery } from '../services/booksApi';
 
 interface HeaderProps {
   hideOnMobileDevice?: boolean;
 }
 
 const Header: React.FC<HeaderProps> = ({ hideOnMobileDevice = false }) => {
+  const { data } = useGetUserPhotoQuery();
+
   const items = [
     { key: 'my-books', label: 'Meus livros' },
     { key: 'borrowed', label: 'Emprestados' },
@@ -19,7 +23,9 @@ const Header: React.FC<HeaderProps> = ({ hideOnMobileDevice = false }) => {
     <HeaderTag hideOnMobileDevice={hideOnMobileDevice}>
       <Container float="right">
         <Flex justifyContent="space-between" alignItems="center">
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
           <Flex gap="24px">
             <Flex gap="12px" alignItems="center" className="menu-item">
               <Plus />
@@ -30,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ hideOnMobileDevice = false }) => {
               <Text fontWeight={700}>Favoritos</Text>
             </Flex>
             <Flex gap="12px" alignItems="center" className="user">
-              <Avatar />
+              <Avatar src={data?.userPicture} alt="user" />
               <Text fontWeight={700}>Nome da silva</Text>
             </Flex>
           </Flex>
@@ -92,7 +98,7 @@ const HeaderTag = styled.header.withConfig({
   }
 `;
 
-const Avatar = styled.div`
+const Avatar = styled.img`
   width: 32px;
   height: 32px;
   border-radius: 50%;

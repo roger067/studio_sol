@@ -5,7 +5,21 @@ import { ReactComponent as Heart } from '../assets/icons/heart.svg';
 import { ReactComponent as Share } from '../assets/icons/share.svg';
 import { ReactComponent as Download } from '../assets/icons/download.svg';
 
-const BookCardDetail = () => (
+interface BookCardDetailProps {
+  urlImage: string;
+  title: string;
+  description: string;
+  author: string;
+  isFavorite: boolean;
+}
+
+const BookCardDetail: React.FC<BookCardDetailProps> = ({
+  urlImage,
+  title,
+  author,
+  description,
+  isFavorite,
+}) => (
   <CardDetailTag mt="32px">
     <Container float="left" className="content">
       <Flex
@@ -15,7 +29,7 @@ const BookCardDetail = () => (
         gap="16px"
         className="side-info"
       >
-        <img src="https://picsum.photos/300" alt="book-cover" />
+        <img src={urlImage} alt="book-cover" />
         <Flex flexDirection="column" mt="16px" gap="24px">
           <Flex gap="12px" alignItems="center" className="menu-item">
             <Heart />
@@ -50,35 +64,21 @@ const BookCardDetail = () => (
             as="h1"
             my="0"
           >
-            O duque e eu: O livro de Daphne
+            {title}
           </Title>
-          <Text color={COLORS.GRAY_400}>Julia Quinn</Text>
+          <Text color={COLORS.GRAY_400}>{author}</Text>
         </Flex>
         <Text fontSize={['1rem', '1.125rem']} mb="16px" lineHeight="1.5rem">
-          Simon Basset, o irresistível duque de Hastings, acaba de retornar a
-          Londres depois de seis anos viajando pelo mundo. Rico, bonito e
-          solteiro, ele é um prato cheio para as mães da alta sociedade, que só
-          pensam em arrumar um bom partido para suas filhas. Simon, porém, tem o
-          firme propósito de nunca se casar. Assim, para se livrar das garras
-          dessas mulheres, precisa de um plano infalível. É quando entra em cena
-          Daphne Bridgerton, a irmã mais nova de seu melhor amigo. Apesar de
-          espirituosa e dona de uma personalidade marcante, todos os homens que
-          se interessam por ela são velhos demais, pouco inteligentes ou
-          destituídos de qualquer tipo de charme. E os que têm potencial para
-          ser bons maridos só a veem como uma boa amiga. A ideia de Simon é
-          fingir que a corteja. Dessa forma, de uma tacada só, ele conseguirá
-          afastar as jovens obcecadas por um marido e atrairá vários
-          pretendentes para Daphne. Afinal, se um duque está interessado nela, a
-          jovem deve ter mais atrativos do que aparenta.
+          {description}
         </Text>
         <Title my="24px" fontSize={['1.125rem', '1.75rem']}>
           Sobre o Autor
         </Title>
         <Text fontSize={['1rem', '1.125rem']} mb="16px" lineHeight="1.5rem">
-          JULIA QUINN começou a trabalhar em seu primeiro romance um mês de -
-          pois de terminar a faculdade e nunca mais parou de escrever. Seus
-          livros foram traduzidos para 37 idiomas e, no Brasil, venderam mais de
-          2,5 milhões de exemplares. A série Os Bridgertons foi adaptada pela
+          {author} começou a trabalhar em seu primeiro romance um mês de - pois
+          de terminar a faculdade e nunca mais parou de escrever. Seus livros
+          foram traduzidos para 37 idiomas e, no Brasil, venderam mais de 2,5
+          milhões de exemplares. A série Os Bridgertons foi adaptada pela
           Netflix e se tornou um sucesso instantâneo, quebrando os recordes de
           audiência da plataforma. Julia foi a autora mais jovem a ser incluída
           na Galeria da Fama dos Escritores Românticos dos Estados Unidos.
@@ -139,7 +139,7 @@ const CardDetailTag = styled(Card)`
     position: absolute;
     bottom: 0;
     overflow: auto;
-    max-height: 75%;
+    max-height: 55%;
     padding: 32px 0 56px 0;
 
     .side-info {

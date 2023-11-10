@@ -12,9 +12,17 @@ import {
   Swiper,
 } from '../ui';
 import { BOOK_CATEGORIES } from '../services/types';
+import {
+  useGetAuthorsQuery,
+  useGetBooksQuery,
+  useGetFavoriteBooksQuery,
+} from '../services/booksApi';
 
 const BookList = () => {
   const [activePill, setActivePill] = useState('all');
+  const { data } = useGetFavoriteBooksQuery();
+  const { data: booksData } = useGetBooksQuery();
+  const { data: authorsData } = useGetAuthorsQuery();
 
   const items = [
     { key: 'my-books', label: 'Meus livros' },
@@ -42,16 +50,16 @@ const BookList = () => {
           </Text>
         </Flex>
         <Swiper gap="24px">
-          <BookCard
-            image="https://picsum.photos/300"
-            title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
-            author="Julia Quinn"
-          />
-          <BookCard image="https://picsum.photos/300" author="" title="" />
-          <BookCard image="https://picsum.photos/300" author="" title="" />
-          <BookCard image="https://picsum.photos/300" author="" title="" />
-          <BookCard image="https://picsum.photos/300" author="" title="" />
-          <BookCard image="https://picsum.photos/300" author="" title="" />
+          {data &&
+            data.favoriteBooks.map((book) => (
+              <BookCard
+                key={book.id}
+                linkTo={`/${book.id}`}
+                image={book.cover}
+                title={book.name}
+                author={book.author.name}
+              />
+            ))}
         </Swiper>
       </Container>
       <Card mt="24px">
@@ -68,21 +76,15 @@ const BookList = () => {
             </Text>
           </Flex>
           <Swiper gap="24px">
-            <AuthorCard
-              image="https://picsum.photos/300"
-              name="Julia Quinn"
-              quantity={6}
-            />
-            <AuthorCard
-              image="https://picsum.photos/300"
-              name="Julia Quinn"
-              quantity={6}
-            />
-            <AuthorCard
-              image="https://picsum.photos/300"
-              name="Julia Quinn"
-              quantity={6}
-            />
+            {authorsData &&
+              authorsData.favoriteAuthors.map((author) => (
+                <AuthorCard
+                  key={author.id}
+                  image={author.picture}
+                  name={author.name}
+                  quantity={author.booksCount}
+                />
+              ))}
           </Swiper>
           <Title mt="40px" mb="24px">
             Biblioteca
@@ -93,42 +95,17 @@ const BookList = () => {
             onChange={(key) => setActivePill(key)}
           />
           <Flex mt="24px" mb="56px" gap="24px" flexWrap="wrap">
-            <BookCard
-              image="https://picsum.photos/300"
-              title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
-              author="Julia Quinn"
-              direction="horizontal"
-            />
-            <BookCard
-              image="https://picsum.photos/300"
-              title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
-              author="Julia Quinn"
-              direction="horizontal"
-            />
-            <BookCard
-              image="https://picsum.photos/300"
-              title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
-              author="Julia Quinn"
-              direction="horizontal"
-            />
-            <BookCard
-              image="https://picsum.photos/300"
-              title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
-              author="Julia Quinn"
-              direction="horizontal"
-            />
-            <BookCard
-              image="https://picsum.photos/300"
-              title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
-              author="Julia Quinn"
-              direction="horizontal"
-            />
-            <BookCard
-              image="https://picsum.photos/300"
-              title="O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne"
-              author="Julia Quinn"
-              direction="horizontal"
-            />
+            {booksData &&
+              booksData.allBooks.map((book) => (
+                <BookCard
+                  key={book.id}
+                  linkTo={`/${book.id}`}
+                  image={book.cover}
+                  title={book.name}
+                  author={book.author.name}
+                  direction="horizontal"
+                />
+              ))}
           </Flex>
         </Container>
       </Card>

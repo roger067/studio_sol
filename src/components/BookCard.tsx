@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import { COLORS, Flex, Text } from '../ui';
+import { useNavigate } from 'react-router-dom';
 
 interface BookCardProps {
   image: string;
   title: string;
   author: string;
+  linkTo?: string;
   direction?: 'vertical' | 'horizontal';
 }
 
@@ -12,9 +14,11 @@ const BookCard: React.FC<BookCardProps> = ({
   image,
   title,
   author,
+  linkTo = '',
   direction = 'vertical',
 }) => {
   const isHorizontal = direction === 'horizontal';
+  const navigate = useNavigate();
 
   return (
     <Card
@@ -22,6 +26,7 @@ const BookCard: React.FC<BookCardProps> = ({
       alignItems={isHorizontal ? 'center' : 'normal'}
       gap={isHorizontal ? '24px' : '12px'}
       isHorizontal={isHorizontal}
+      onClick={() => navigate(linkTo)}
     >
       <img src={image} alt="book" />
       <Flex flexDirection="column">
@@ -39,6 +44,8 @@ const Card = styled(Flex).withConfig({
 })<{ isHorizontal: boolean }>`
   width: ${({ isHorizontal }) =>
     isHorizontal ? 'calc(33.3% - 16px)' : '100%'};
+
+  cursor: pointer;
 
   img {
     border-radius: 8px;

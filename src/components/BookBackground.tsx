@@ -10,11 +10,11 @@ import { ReactComponent as Download } from '../assets/icons/download.svg';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-const BookBackground = () => {
+const BookBackground: React.FC<{ urlImage: string }> = ({ urlImage }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <BookSection urlImage="https://picsum.photos/500/1000">
+    <BookSection urlImage={urlImage}>
       <Flex justifyContent="space-between" alignItems="center" padding="16px">
         <Link to="/">
           <ArrowLeft />
@@ -43,13 +43,16 @@ const BookBackground = () => {
   );
 };
 
-const BookSection = styled.div<{ urlImage?: string }>`
+const BookSection = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== 'urlImage',
+})<{ urlImage?: string }>`
   position: relative;
   width: 100%;
   height: 100vh;
   background-image: ${({ urlImage }) => `url(${urlImage})`};
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   z-index: 5;
 
   &:after {
