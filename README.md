@@ -46,7 +46,7 @@ Componentes onde tem a união de componentes menores, com lógicas de comportame
 
 ### pages
 
-União dos componentes mais complexos. Forma a página da feature especificada. É onde coloquei o retorno da data da api para poder usar em outros dois components diferentes sem precisar chamar o hook da api mais de uma vez desnecessariamente.
+União dos componentes mais complexos. Forma a página da feature especificada.
 
 ### services
 
