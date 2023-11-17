@@ -47,7 +47,7 @@ const BookList = () => {
         </Flex>
         <BookCardList />
       </Container>
-      <Card mt="24px">
+      <Card mt="24px" flex="1">
         <Container float="left">
           <Flex
             justifyContent="space-between"

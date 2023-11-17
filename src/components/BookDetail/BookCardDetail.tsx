@@ -20,7 +20,7 @@ const BookCardDetail: React.FC<BookCardDetailProps> = ({
   description,
   isFavorite,
 }) => (
-  <CardDetailTag mt="32px">
+  <CardDetailTag mt="32px" flex="1">
     <Container float="left" className="content">
       <Flex
         flex="1"
@@ -99,7 +99,6 @@ const BookCardDetail: React.FC<BookCardDetailProps> = ({
 );
 
 const CardDetailTag = styled(Card)`
-  min-height: 70%;
   padding-bottom: 80px;
   z-index: 10;
 
@@ -155,7 +154,7 @@ const CardDetailTag = styled(Card)`
     position: absolute;
     bottom: 0;
     overflow: auto;
-    max-height: 55%;
+    max-height: 70%;
     padding: 32px 0 56px 0;
 
     .side-info {
